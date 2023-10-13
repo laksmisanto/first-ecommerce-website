@@ -1,6 +1,5 @@
-import Logo from "@/assets/svg/logo";
-import Banner from "@/components/banner/Banner";
-import Layout from "@/components/layout/layout";
+import Banner from "@/components/Banner/Banner";
+import Layout from "@/components/Layout/Layout";
 
 export default function Home() {
   return (

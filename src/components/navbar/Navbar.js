@@ -1,31 +1,37 @@
+"use client";
 import React from "react";
 import Logo from "@/assets/svg/logo";
-import { MenuData } from "@/data/menuData";
-import Flex from "../flex/flex";
-import List from "../list/list";
-import ListItem from "../list/ListItem";
-import Container from "../container/container";
+import Flex from "../Flex/Flex";
+import Container from "../Container/Container";
+import TopBar from "./TopBar";
+import List from "../List/List";
+import ListItem from "../List/ListItem";
+import { MenuData } from "./MenuData";
 
 const Navbar = () => {
   return (
     <>
       <Container>
-        <Flex className="justify-between items-center py-4">
-          <Logo />
-          <List>
-            <Flex>
-              {MenuData.map((item, i) => (
-                <ListItem
-                  className="mx-4 cursor-pointer font-semibold transition-all ease-in-out duration-300 text-gray-500 hover:tracking-wider hover:text-gray-900 hover:font-semibold"
-                  key={i}
-                >
-                  {item.title}
-                </ListItem>
-              ))}
-            </Flex>
+        <Flex className="items-center justify-between py-8">
+          <Logo className="w-1/5" />
+          <List className="w-3/4 flex justify-end">
+            {MenuData.map((item, i) => (
+              <ListItem
+                className="mx-4 cursor-pointer font-primaryFont text-sm font-normal transition-all ease-in-out duration-300 text-gray hover:text-black hover:font-bold"
+                key={i}
+                href={item.link}
+              >
+                {item.title}
+              </ListItem>
+            ))}
           </List>
         </Flex>
       </Container>
+      <div className="topbar bg-[#F5F5F3]">
+        <Container>
+          <TopBar />
+        </Container>
+      </div>
     </>
   );
 };
