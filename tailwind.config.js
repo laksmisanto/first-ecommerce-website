@@ -20,6 +20,7 @@ module.exports = {
       colors: {
         black: "#262626",
         gray: "#767676",
+        bg: "#F5F5F3",
       },
       fontFamily: {
         primaryFont: ["DM Sans", "sans-serif"],
