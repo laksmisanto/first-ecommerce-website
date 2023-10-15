@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
@@ -18,39 +18,47 @@ import { LogOut } from "lucide-react";
 import ListItem from "../List/ListItem";
 import List from "../List/List";
 import { CategoryData } from "./CategoryData";
+import useClickOutside from "@/helpers/clickOutside";
 
 const TopBar = () => {
-  const [category, setCategory] = useState(false);
-
-  const handleCategory = () => {
-    setCategory(!category);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const clickOutside = useRef(null);
+  const handleShowDropdown = () => {
+    setShowDropdown(true);
   };
+  useClickOutside(clickOutside, () => {
+    setShowDropdown(false);
+  });
   return (
     <>
       <Flex className="p-10 justify-between items-center">
         <div className=" w-1/5 relative">
           <button
             className="cursor-pointer flex items-center"
-            onClick={() => handleCategory()}
+            onClick={() => handleShowDropdown()}
           >
             <BiMenuAltLeft className="pr-1 text-2xl" />
             <span className="font-primaryFont text-sm text-black">
               Shop by Category
             </span>
           </button>
-          {category && (
-            <List className="category__list absolute left-0 top-8 w-full z-50 bg-black">
-              {CategoryData.map((item, i) => (
-                <ListItem
-                  className="font-primaryFont font-normal text-sm text-white px-3 py-1 border-b last:border-b-0 border-gray hover:pl-5 transition-all duration-300 ease-in-out cursor-pointer"
-                  href={item.link}
-                  key={i}
-                >
-                  {item.title}
-                </ListItem>
-              ))}
-            </List>
-          )}
+          {showDropdown ? (
+            <div
+              className="category__list absolute left-0 top-8 w-full z-50 bg-black"
+              ref={clickOutside}
+            >
+              <List>
+                {CategoryData.map((item, i) => (
+                  <ListItem
+                    className="font-primaryFont font-normal text-sm text-white px-3 py-1 border-b last:border-b-0 border-gray hover:pl-5 transition-all duration-300 ease-in-out cursor-pointer"
+                    key={i}
+                  >
+                    {item.title}
+                  </ListItem>
+                ))}
+              </List>
+            </div>
+          ) : null}
         </div>
         <div className="w-2/5">
           <Flex className="w-full justify-center items-center relative">

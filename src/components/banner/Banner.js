@@ -22,8 +22,8 @@ const Banner = () => {
           <div className="outline-none border-none" key={i}>
             <Image
               src={item.bannerImg}
-              width={1400}
-              height={800}
+              width={1200}
+              height={720}
               alt="banner-image"
               className="w-full h-full object-cover"
             />
