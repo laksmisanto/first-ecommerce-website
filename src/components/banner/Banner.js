@@ -3,6 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import { BanenrData } from "./BannerData";
+import BannerProductInfo from "./BannerProductInfo";
 
 const Banner = () => {
   const settings = {
@@ -24,12 +25,14 @@ const Banner = () => {
               src={item.bannerImg}
               width={1200}
               height={720}
+              loading="lazy"
               alt="banner-image"
               className="w-full h-full object-cover"
             />
           </div>
         ))}
       </Slider>
+      <BannerProductInfo />
     </>
   );
 };
