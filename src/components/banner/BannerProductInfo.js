@@ -13,19 +13,19 @@ const BannerProductInfo = () => {
           <Grid className="grid-cols-3">
             <Flex className="items-center ">
               <PiNumberTwoBold className="text-2xl mr-4 text-bla" />
-              <h6 className="font-primaryFont font-normal text-[16px] text-grayLight">
+              <h6 className="font-primaryFont font-normal text-[16px] text-lightGray">
                 Two years warranty
               </h6>
             </Flex>
             <Flex className="items-center ">
               <MdLocalShipping className="text-2xl mr-4 text-bla" />
-              <h6 className="font-primaryFont font-normal text-[16px] text-grayLight">
+              <h6 className="font-primaryFont font-normal text-[16px] text-lightGray">
                 Free shipping
               </h6>
             </Flex>
             <Flex className="items-center ">
               <MdOutlineRefresh className="text-2xl mr-4 text-bla" />
-              <h6 className="font-primaryFont font-normal text-[16px] text-grayLight">
+              <h6 className="font-primaryFont font-normal text-[16px] text-lightGray">
                 Return policy in 30 days
               </h6>
             </Flex>
