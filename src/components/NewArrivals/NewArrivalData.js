@@ -27,4 +27,16 @@ export const NewArrivalData = [
     price: "$43.00",
     color: "silver",
   },
+  {
+    productImg: handClock,
+    name: "Basic Crew Neck Tee",
+    price: "$40.00",
+    color: "Orange",
+  },
+  {
+    productImg: basket,
+    name: "Basic Crew Neck Tee",
+    price: "$34.00",
+    color: "pink",
+  },
 ];

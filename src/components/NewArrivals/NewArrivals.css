@@ -1,0 +1,22 @@
+.slider__btn {
+  z-index: 999;
+  position: absolute;
+  top: 40%;
+  width: 64px;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.slider__btn svg path {
+  fill: white;
+}
+.right__arrow {
+  right: 20px;
+}
+.left__arrow {
+  left: 20px;
+}

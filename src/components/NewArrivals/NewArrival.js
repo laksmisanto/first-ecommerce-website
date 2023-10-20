@@ -1,10 +1,24 @@
+"use client";
 import React from "react";
 import Container from "../Container/Container";
-import Grid from "../Grid/Grid";
 import ProductItem from "../ProductItems/ProductItem";
 import { NewArrivalData } from "./NewArrivalData";
+import Slider from "react-slick";
+import "./NewArrivals.css";
+import NextArrow from "../Arrow/NextArrow";
+import PrevArrow from "../Arrow/PrevArrow";
 
 const NewArrival = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
   return (
     <>
       <Container>
@@ -13,17 +27,18 @@ const NewArrival = () => {
             New Arrivals
           </h3>
         </div>
-        <Grid className="grid-cols-4 gap-10">
+        <Slider {...settings}>
           {NewArrivalData.map((item, i) => (
-            <ProductItem
-              key={i}
-              img={item.productImg}
-              name={item.name}
-              price={item.price}
-              color={item.color}
-            />
+            <div className="px-5" key={i}>
+              <ProductItem
+                img={item.productImg}
+                name={item.name}
+                price={item.price}
+                color={item.color}
+              />
+            </div>
           ))}
-        </Grid>
+        </Slider>
       </Container>
     </>
   );
