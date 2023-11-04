@@ -32,6 +32,7 @@ const NewArrival = () => {
             <div className="px-5" key={i}>
               <ProductItem
                 img={item.productImg}
+                badge={item.badge}
                 name={item.name}
                 price={item.price}
                 color={item.color}

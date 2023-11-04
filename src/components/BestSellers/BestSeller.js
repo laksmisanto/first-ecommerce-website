@@ -12,6 +12,7 @@ const BestSeller = () => {
           <ProductItem
             key={i}
             img={item.productImg}
+            badge={item.badge}
             name={item.name}
             price={item.price}
             color={item.color}

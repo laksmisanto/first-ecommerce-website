@@ -7,7 +7,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { TbRefresh } from "react-icons/tb";
 import { HiShoppingCart } from "react-icons/hi";
 
-const ProductItem = ({ img, name, price, color }) => {
+const ProductItem = ({ img, name, price, color, badge }) => {
   return (
     <>
       <div className="shadow">
@@ -20,9 +20,11 @@ const ProductItem = ({ img, name, price, color }) => {
             alt="product-image"
             className="w-full h-full"
           />
-          <div className="font-primaryFont font-bold text-sm px-8 py-2 bg-black text-white absolute left-5 top-5">
-            new
-          </div>
+          {badge && (
+            <div className="font-primaryFont capitalize font-bold text-sm px-8 py-2 bg-black text-white absolute left-5 top-5">
+              {badge}
+            </div>
+          )}
           <List className="text-end px-7 py-6 bg-white absolute w-full transition-all ease-in-out duration-500 opacity-0 group-hover:opacity-100 right-0 -bottom-2/4 group-hover:bottom-0">
             <ListItem
               href="/"
