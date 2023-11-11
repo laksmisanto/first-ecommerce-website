@@ -1,0 +1,86 @@
+"use client";
+import React, { useEffect, useState } from "react";
+import Logo from "@/assets/svg/logo";
+import Flex from "../Flex/Flex";
+import Container from "../Container/Container";
+import TopBar from "./TopBar";
+import List from "../List/List";
+import ListItem from "../List/ListItem";
+import { MenuData } from "./MenuData";
+import { FaBars } from "react-icons/fa";
+
+const Navbar = () => {
+  const [show, setShow] = useState(false);
+  const [barShow, setBarShow] = useState(false);
+  const [menuShow, setMenuShow] = useState(false);
+
+  useEffect(() => {
+    function scrollWidth() {
+      if (window.innerWidth > 1024) {
+        setShow(true);
+        setBarShow(false);
+      } else {
+        setShow(false);
+        setBarShow(true);
+      }
+    }
+    scrollWidth();
+    window.addEventListener("resize", scrollWidth);
+  }, []);
+  return (
+    <>
+      <Container>
+        <Flex className="items-center justify-between my-8">
+          <div className="w-1/5">
+            <Logo />
+          </div>
+          <div className="w-3/4 h-full relative">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2">
+              {barShow && (
+                <FaBars
+                  onClick={() => setMenuShow(!menuShow)}
+                  size={28}
+                  className="z-50 cursor-pointer text-gray hover:text-black transition-all ease-in-out duration-300"
+                />
+              )}
+            </div>
+            {show ? (
+              <List className=" flex justify-end">
+                {MenuData.map((item, i) => (
+                  <ListItem
+                    className="mx-4 last:mr-0 cursor-pointer font-primaryFont text-sm font-normal transition-all ease-in-out duration-300 text-gray hover:text-black hover:font-bold"
+                    key={i}
+                    href={item.link}
+                  >
+                    {item.title}
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              menuShow && (
+                <List className="z-40 absolute right-0 mt-4 w-52 bg-white">
+                  {MenuData.map((item, i) => (
+                    <ListItem
+                      className="px-4 py-2 border-b last:border-0 border-gray last:mr-0 cursor-pointer font-primaryFont text-sm font-normal transition-all ease-in-out duration-300 text-gray hover:text-black hover:pl-6"
+                      key={i}
+                      href={item.link}
+                    >
+                      {item.title}
+                    </ListItem>
+                  ))}
+                </List>
+              )
+            )}
+          </div>
+        </Flex>
+      </Container>
+      <div className="topbar bg-[#F5F5F3]">
+        <Container>
+          <TopBar />
+        </Container>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;

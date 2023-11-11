@@ -48,11 +48,13 @@ const Banner = () => {
                 color: "#262626",
                 borderRight: "3px solid #262626",
                 paddingRight: "10px",
+                transition: "all 0.3s linear",
               }
             : {
                 color: "transparent",
                 borderRight: "3px solid white",
                 paddingRight: "10px",
+                transition: "all 0.3s linear",
               }
         }
       >

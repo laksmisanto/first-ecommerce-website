@@ -31,8 +31,8 @@ const TopBar = () => {
   });
   return (
     <>
-      <Flex className="p-10 justify-between items-center">
-        <div className=" w-1/5 relative">
+      <Flex className="py-10 justify-between items-center flex-wrap">
+        <div className="w-1/2 md:w-1/5 relative">
           <button
             className="cursor-pointer flex items-center"
             onClick={() => handleShowDropdown()}
@@ -60,7 +60,7 @@ const TopBar = () => {
             </div>
           ) : null}
         </div>
-        <div className="w-2/5">
+        <div className="w-1/2 md:w-2/5">
           <Flex className="w-full justify-center items-center relative">
             <input
               type="text"
@@ -74,11 +74,11 @@ const TopBar = () => {
             </div>
           </Flex>
         </div>
-        <Flex className="w-1/5 items-center justify-end">
+        <Flex className="w-full md:w-1/5 justify-center my-5 md:my-0 md:items-center md:justify-end gap-x-10">
           <div className="user">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="flex cursor-pointer items-center mr-10 outline-none border-none">
+                <button className="flex cursor-pointer items-center outline-none border-none">
                   <FaUserAlt className="mr-2 text-lg" />
                   <IoMdArrowDropdown className="text-2xl " />
                 </button>
@@ -95,7 +95,9 @@ const TopBar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          <FaShoppingCart className="text-lg cursor-pointer" />
+          <div className="shop__icon">
+            <FaShoppingCart className="text-lg cursor-pointer" />
+          </div>
         </Flex>
       </Flex>
     </>

@@ -13,7 +13,7 @@ const Offer = () => {
         <Grid className="grid-cols-2 grid-rows-2 gap-10">
           <Image
             src={phoneImg}
-            width={600}
+            width={800}
             height={800}
             loading="lazy"
             alt="offer-images"
@@ -22,7 +22,7 @@ const Offer = () => {
           <Image
             src={electronicImg}
             width={600}
-            height={800}
+            height={500}
             loading="lazy"
             alt="offer-images"
             className="w-full h-full"
@@ -30,7 +30,7 @@ const Offer = () => {
           <Image
             src={furnitureImg}
             width={600}
-            height={800}
+            height={500}
             loading="lazy"
             alt="offer-images"
             className="w-full h-full"
