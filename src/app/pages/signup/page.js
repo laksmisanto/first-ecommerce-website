@@ -1,9 +1,13 @@
+import Layout from "@/components/Layout/Layout";
+import SignUpForm from "@/components/SignUp/SignUp";
 import React from "react";
 
 const signUp = () => {
   return (
     <>
-      <p>this is sign up page</p>
+      <Layout>
+        <SignUpForm />
+      </Layout>
     </>
   );
 };
